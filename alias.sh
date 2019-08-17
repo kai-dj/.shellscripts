@@ -7,10 +7,10 @@ alias sbrc='source ~/.bashrc && echo bashrc sourced'
 #list available functions
 alias falias='declare -F'
 #source aliases for worms armageddon
-source ~/.worms/wurmaliasse.sh
+#source ~/.worms/wurmaliasse.sh
 
 #alias each shellscript in ~/.shellscripts/* 
-for shellscript in ~/.shellscripts/*/*.sh; do
+for shellscript in ~/.shellscripts/*/*.a.sh; do
   #desiredalias=$(basename -s ".sh" "$shellscript")
   ##test if command already set
   #~ if ! type "$desiredalias" > /dev/null; then
@@ -21,9 +21,9 @@ for shellscript in ~/.shellscripts/*/*.sh; do
     #~ echo "$desiredalias"" is already in use - shell script will be aliased as aik_""$desiredalias"
     #~ alias "aik_"$(basename -s ".sh" "$shellscript")="sh $shellscript"
     #~ #echo "foreced alias ""$desiredalias"
-    #~ #alias $(basename -s ".sh" "$shellscript")="sh $shellscript"
+    #~ #alias $(basename -s ".a.sh" "$shellscript")="sh $shellscript"
   #~ fi
-  alias $(basename -s ".sh" "$shellscript")="sh $(realpath $shellscript)"
+  alias $(basename -s ".a.sh" "$shellscript")="sh $(realpath $shellscript)"
 done
 
 #chmod
