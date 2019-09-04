@@ -1,1 +1,12 @@
-collection of my shell scripts which could be useful.
+* collection of my shell scripts which could be useful.
+
+** Good to know
+*** alias.sh
+Is the heart of my shellscripts, because next to set normal aliases it looks for scripts in ~/.shellscripts wich are postfixed with .a.sh extension.
+
+** Beware!
+- Always check the scripts, before using them. They might not fit your particular system.
+- The scripts might be useful to you, but are made for myself in the first place.
+
+** DISCLAIMER
+I make no representations or warranties of any kind concerning the safety, suitability, lack of viruses, inaccuracies, typographical errors, or other harmful components of any of the scripts contained in this collection.
