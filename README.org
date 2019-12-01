@@ -2,7 +2,7 @@
 
 ** Good to know
 *** alias.sh
-Is the heart of my shellscripts, because next to setting normal aliases it looks for scripts in ~/.shellscripts wich are postfixed with .a.sh extension an aliases them (alias=filename without .a.sh).
+Is the heart of my shellscripts, because next to setting normal aliases it looks for scripts in ~/.shellscripts which are postfixed with .a.sh extension an aliases them (alias=filename without .a.sh).
 
 ** Beware!
 - Always check the scripts, before using them. They might not fit your particular system.
