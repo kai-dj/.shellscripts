@@ -19,6 +19,6 @@ for ((i=1; i<=$COUNT; i+=1)); do
     echo "DO ""$i"". time:"
     echo "================"
     COMMAND=${*//\$I/"$i"}
-    eval $COMMAND
+    eval "$COMMAND"
     echo
 done
