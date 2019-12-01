@@ -5,7 +5,7 @@ Usage: $0 [COUNT] [COMMAND]
 \$I will be replaced by loop index
 Example: DO 5 echo 'I am at lopp index \$I'"
 
-if [[ "$1" == "-h" ]]
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]
  then
   echo "$DESCRIPTION"
   exit 0
