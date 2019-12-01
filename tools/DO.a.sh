@@ -14,7 +14,7 @@ fi
 COUNT="$1"
 shift
 echo "repeating ""$*"" ""$COUNT"" times."
-for ((i=1; i<=$COUNT; i+=1)); do
+for ((i=1; i<=COUNT; i+=1)); do
     echo "================"
     echo "DO ""$i"". time:"
     echo "================"
