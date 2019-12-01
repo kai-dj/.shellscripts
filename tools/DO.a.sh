@@ -18,7 +18,7 @@ for ((i=1; i<=$COUNT; i+=1)); do
     echo "================"
     echo "DO ""$i"". time:"
     echo "================"
-    COMMAND=$(echo "$@" | sed -e "s#\$I#""$i""#g")
+    COMMAND=${*//\$I/"$i"}
     eval $COMMAND
     echo
 done
