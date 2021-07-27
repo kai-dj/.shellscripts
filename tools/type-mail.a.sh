@@ -9,5 +9,4 @@ fi
 
 xdotool type "kai.lueking" &&
 xdotool key U0040 &&
-xdotool type "gmail.com"
-
+xdotool type "monday-consulting.com"

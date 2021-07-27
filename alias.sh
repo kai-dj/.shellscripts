@@ -1,7 +1,10 @@
+#!/usr/bin/env bash
 #
 # ~/.config/aik/linux/alias.sh
 #
 
+#git with en_US locale
+alias git='LANGUAGE=en_Us git'
 #shortcut for re-sourcing bashrc
 alias sbrc='source ~/.bashrc && echo bashrc sourced'
 #list available functions
@@ -9,7 +12,7 @@ alias falias='declare -F'
 #source aliases for worms armageddon
 #source ~/.worms/wurmaliasse.sh
 
-#alias each shellscript in ~/.shellscripts/* 
+#alias each shellscript in ~/.shellscripts/* having .a.sh prefix
 for shellscript in ~/.shellscripts/*/*.a.sh; do
   #desiredalias=$(basename -s ".sh" "$shellscript")
   ##test if command already set
@@ -47,6 +50,9 @@ alias xterm='xterm -bg black -fg white'
 #git
 alias gc='git clone'
 alias gs='git status'
+alias gf='git fetch'
+alias gp='git pull'
+alias gfp='git fetch && git pull'
 
 #ntp
 alias Z='sudo ntpdate -u ntp.ubuntu.com'
@@ -102,16 +108,17 @@ alias RS='sudo pacman -Rs'
 alias SCC='sudo echo "J" | sudo pacman -Scc && printf "\n"' #clear cache
 alias Y='yaourt'
 
-
 ### UNI
 alias vpn='cat ~/.pw/uni_vpn  | cut -d ':' -f2 | sudo openconnect -u $(cat ~/.pw/uni_vpn  | cut -d ':' -f1) --passwd-on-stdin vpn-gate-1.uni-bielefeld.de & disown'
 
+### ARBEIT
+alias arbeit='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
 
-#TODO put in functions file
-function jsonValue() {
-    KEY=$1
-    num=$2
-    awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
-}
+alias dcrmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
+ alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop'
 
+alias fsmwf='~/PRJ/firstspirit_2021-05-07/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+
+alias dcrgkv='OLDDIR=$(pwd); cd ~/PRJ/gkv/gkv-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d fs5 mssql tomcat-sv-web; cd $OLDDIR'
+alias fsgkv='~/PRJ/gkv/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
