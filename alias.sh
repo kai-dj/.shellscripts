@@ -12,23 +12,32 @@ alias falias='declare -F'
 #source aliases for worms armageddon
 #source ~/.worms/wurmaliasse.sh
 
-#alias each shellscript in ~/.shellscripts/* having .a.sh prefix
-for shellscript in ~/.shellscripts/*/*.a.sh; do
-  #desiredalias=$(basename -s ".sh" "$shellscript")
+#alias each shell_script in ~/.shellscripts/* having .a.sh prefix
+for shell_script in ~/.shellscripts/*/*.a.sh; do
+  #desiredalias=$(basename -s ".sh" "$shell_script")
   ##test if command already set
   #~ if ! type "$desiredalias" > /dev/null; then
     #~ #set name of script for alias
-    #~ alias $(basename -s ".sh" "$shellscript")="sh $shellscript"
+    #~ alias $(basename -s ".sh" "$shell_script")="sh $shell_script"
   #~ else
     #~ #prepend aik_
     #~ echo "$desiredalias"" is already in use - shell script will be aliased as aik_""$desiredalias"
-    #~ alias "aik_"$(basename -s ".sh" "$shellscript")="sh $shellscript"
+    #~ alias "aik_"$(basename -s ".sh" "$shell_script")="sh $shell_script"
     #~ #echo "foreced alias ""$desiredalias"
-    #~ #alias $(basename -s ".a.sh" "$shellscript")="sh $shellscript"
+    #~ #alias $(basename -s ".a.sh" "$shell_script")="sh $shell_script"
   #~ fi
-  alias $(basename -s ".a.sh" "$shellscript")="sh $(realpath $shellscript)"
-done
 
+  # shellcheck disable=SC2086
+  # shellcheck disable=SC2046
+  # shellcheck disable=SC2139
+  alias $(basename -s ".a.sh" "$shell_script")="sh $(realpath $shell_script)"
+done
+for shellscriptbin in ~/.shellscripts/*/*.b.sh; do
+  # shellcheck disable=SC2046
+  rm -f "$HOME"/.shellscripts/bin/$(basename -s ".b.sh" "$shellscriptbin")
+  ln -s "$shellscriptbin" "$HOME"/.shellscripts/bin/$(basename -s ".b.sh" "$shellscriptbin")
+  chmod +x "$HOME"/.shellscripts/bin/$(basename -s ".b.sh" "$shellscriptbin")
+done
 #chmod
 alias +r='chmod +r'
 alias +w='chmod +w'
@@ -105,6 +114,7 @@ alias SYU='sudo pacman -Syu' #update
 alias S='yaourt -Syu --aur' #update +aur
 alias RSS='sudo pacman -Rss'
 alias RS='sudo pacman -Rs'
+alias unlock-pacman='sudo rm /var/lib/pacman/db.lck'
 alias SCC='sudo echo "J" | sudo pacman -Scc && printf "\n"' #clear cache
 alias Y='yaourt'
 
@@ -115,10 +125,19 @@ alias vpn='cat ~/.pw/uni_vpn  | cut -d ':' -f2 | sudo openconnect -u $(cat ~/.pw
 alias arbeit='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
 
 alias dcrmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
- alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop'
+alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop'
 
 alias fsmwf='~/PRJ/firstspirit_2021-05-07/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 alias dcrgkv='OLDDIR=$(pwd); cd ~/PRJ/gkv/gkv-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d fs5 mssql tomcat-sv-web; cd $OLDDIR'
 alias fsgkv='~/PRJ/gkv/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+
+
+#TODO put in functions file
+function jsonValue() {
+    KEY=$1
+    num=$2
+    awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
+}
+
 
