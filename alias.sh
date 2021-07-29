@@ -122,7 +122,7 @@ alias Y='yaourt'
 alias vpn='cat ~/.pw/uni_vpn  | cut -d ':' -f2 | sudo openconnect -u $(cat ~/.pw/uni_vpn  | cut -d ':' -f1) --passwd-on-stdin vpn-gate-1.uni-bielefeld.de & disown'
 
 ### ARBEIT
-alias arbeit='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
+##alias arbeit='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
 
 alias dcrmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
 alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop'
