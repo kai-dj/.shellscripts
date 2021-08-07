@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # unlocks screen of android device
 adb shell input keyevent 82 &&
     adb shell input swipe 10 450 1070 450 &&

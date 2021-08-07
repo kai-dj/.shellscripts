@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 #open emacs workspace with 2 instances and placeholder for speedbar (via speedkill)
 
 i3-msg "workspace emacs; append_layout ~/.config/i3/workspaces/emacs_speed.json" &&

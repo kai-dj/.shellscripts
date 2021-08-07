@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #script for taking screenshot with scrot to clipboard
 TEMP_PNG=$(mktemp --suffix=.png)
 # temp file must be deleted, because scrot won't overwrite existing files :/

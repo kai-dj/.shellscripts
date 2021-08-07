@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # gets random file from directory
 if [ $# -eq 0 ]
 then

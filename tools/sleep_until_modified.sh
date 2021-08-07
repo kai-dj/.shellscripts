@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #TODO find original author's name and credit - or rewrite ^^
 ## while ./sleep_until_modified.sh working.php.xml ; do php working.php.xml > working_out.svg; cat working_out.svg | grep ECHO; done
 SCRIPTNAME=`basename "$0"`

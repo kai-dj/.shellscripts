@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # toggle usb tethering on the device
 #
 ANDROID4VALUE=34

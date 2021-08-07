@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 DESCRIPTION="Script using xdotool to type email address."
 
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]

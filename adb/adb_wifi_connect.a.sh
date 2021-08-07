@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # connect to device tethering wifi
 #
 adb kill-server

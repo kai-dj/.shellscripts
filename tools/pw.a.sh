@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # generate random password
 
 if (( $# != 1 )); then 

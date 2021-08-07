@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 xterm -bg black -fg white -geometry 111x33 &
 sleep 0.1 &&
 if [ -x "$(command -v transset-df)" ]; then    

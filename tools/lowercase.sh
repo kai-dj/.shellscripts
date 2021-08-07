@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # renames file to lowercase (could harm files - be careful)
 
 

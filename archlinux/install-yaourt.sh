@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 DESCRIPTION="Script installs yaourt and package-query. BEWARE: yaourt is considered insecure and hence obsolete!"
 
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]

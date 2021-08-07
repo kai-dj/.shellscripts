@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # remove wine applications from context menus etc.
 
 rm -f ~/.local/share/mime/packages/x-wine*;

@@ -97,7 +97,7 @@ function cdf() {
   json_array=$(update_holder holder__countdown "$json_append")
 }
 
-#!/bin/bash
+#!/usr/bin/env bash
 # shell script to prepend i3status with more stuff
 
 #echo '{"version":1}'

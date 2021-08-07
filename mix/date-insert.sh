@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # inserts date via xdotool
 
 # if german keyboard setxkbmap -layout de - special characters are displayed incorrectly if not

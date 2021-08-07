@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 DESCRIPTION="Script repeating a command.
 Intended to be aliased to DO.
 Usage: $0 [COUNT] [COMMAND]

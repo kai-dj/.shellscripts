@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # script for batch scanning with brother-mfc250c (and probably others)
 
 device=$(scanimage -L | cut -d'`' -f 2 | cut -d"'" -f 1)
