@@ -34,9 +34,9 @@ for shell_script in ~/.shellscripts/*/*.a.sh; do
 done
 for shellscriptbin in ~/.shellscripts/*/*.b.sh; do
   # shellcheck disable=SC2046
-  rm -f "$HOME"/.shellscripts/bin/$(basename -s ".b.sh" "$shellscriptbin")
-  ln -s "$shellscriptbin" "$HOME"/.shellscripts/bin/$(basename -s ".b.sh" "$shellscriptbin")
-  chmod +x "$HOME"/.shellscripts/bin/$(basename -s ".b.sh" "$shellscriptbin")
+  rm -f "$HOME"/.shellscripts/bin/dyn/$(basename -s ".b.sh" "$shellscriptbin")
+  ln -s "$shellscriptbin" "$HOME"/.shellscripts/bin/dyn/$(basename -s ".b.sh" "$shellscriptbin")
+  chmod +x "$HOME"/.shellscripts/bin/dyn/$(basename -s ".b.sh" "$shellscriptbin")
 done
 #chmod
 alias +r='chmod +r'

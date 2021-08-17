@@ -7,6 +7,7 @@ export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:"$HOME"/
 export PATH=$PATH:"$HOME"/bin
 export PATH=$PATH:"$HOME"/.shellscripts/bin
+export PATH=$PATH:"$HOME"/.shellscripts/bin/dyn
 export PATH=$PATH:"$HOME"/.config/aik/linux/bin
 export PATH=$PATH:"$HOME"/.node_modules/bin
 export PATH=$PATH:"$HOME"/.local/bin
