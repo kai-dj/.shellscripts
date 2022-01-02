@@ -114,7 +114,7 @@ class SVGCompareRfvw(gtk.Window):
             self.queue_draw()
         elif event.keyval in [gtk.keysyms.i, gtk.keysyms.I]:
             self.interp = (self.interp + 1) % 4
-            print ('Switching interpolation method to: %s ' % self.interp_text[self.interp])
+            print(('Switching interpolation method to: %s ' % self.interp_text[self.interp]))
             self.queue_draw()
 
 
@@ -130,7 +130,7 @@ class SVGCompareRfvw(gtk.Window):
 
 
     def butt_event(self, widget, event):
-        print ('butt',event.button)
+        print(('butt',event.button))
         if event.button == 1:
             self.x, self.y = event.x, event.y
             ## try refresh
@@ -165,7 +165,7 @@ class SVGCompareRfvw(gtk.Window):
             self.dx += x - self.x
             self.dy += y - self.y
             self.x, self.y = x, y
-            print (self.dx, self.dy)
+            print((self.dx, self.dy))
             self.queue_draw()
 
     def svg_expose(self, da, event, svg):
@@ -242,7 +242,7 @@ def idle_func(*args):
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
-        print (sys.argv[0]+':','usage:',sys.argv[0],'<filename>')
+        print((sys.argv[0]+':','usage:',sys.argv[0],'<filename>'))
     else:
         global svgobj
         global svgFileName
