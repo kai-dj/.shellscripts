@@ -1,0 +1,1 @@
+ inotifywait -e move -mrq --format %e-%w%f ~/ | while read FILE; do  if [[ $FILE == MOVED_FROM* ]]; then MF=$FILE; else echo "$MF""-->"$FILE"; fi; done
