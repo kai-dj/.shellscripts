@@ -3,7 +3,7 @@
 shopt -s extglob
 cd ~
 if [[ $# -eq 0 ]] ; then
-    BASEDIR="/run/media/aik/EXT_4TB/tmp"
+    BASEDIR="/run/media/aik/EXT_4TB_2/tmp"
 else
     BASEDIR="$1"
 fi
