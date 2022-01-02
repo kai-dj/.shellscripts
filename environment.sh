@@ -19,3 +19,5 @@ export npm_config_prefix=~/.node_modules
 export ANDROID_SDK=/opt/android-sdk
 export ANDROID_NDK=/opt/android-sdk/ndk-bundle
 export PATH=$PATH:$ANDROID_SDK/platform-tools:$ANDROID_SDK/tools:/root/.gem/ruby/2.7.0/bin
+
+export PAPERSIZE="a4"
