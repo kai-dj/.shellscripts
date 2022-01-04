@@ -132,6 +132,9 @@ alias fsmwf='~/PRJ/firstspirit_2021-05-07/FSLauncher/FSLauncher ~/Downloads/conf
 alias dcrgkv='OLDDIR=$(pwd); cd ~/PRJ/gkv/gkv-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d fs5 mssql tomcat-sv-web; cd $OLDDIR'
 alias fsgkv='~/PRJ/gkv/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
+alias fsepp='~/PRJ/epp/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+
+alias fsschu='~/PRJ/fs-schulung/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 #TODO put in functions file
 function jsonValue() {
