@@ -124,17 +124,21 @@ alias vpn='cat ~/.pw/uni_vpn  | cut -d ':' -f2 | sudo openconnect -u $(cat ~/.pw
 ### ARBEIT
 ##alias arbeit='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
 
-alias dcrmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
-alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/firstspirit_2021-05-07/firstspirit-mwf-docker-environment/ && docker-compose stop'
+alias dcrmwf='OLDDIR=$(pwd); cd ~/PRJ/mwf/firstspirit-mwf-docker-environment/ && docker-compose stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
+alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/mwf/firstspirit-mwf-docker-environment/ && docker-compose stop'
 
 alias fsmwf='~/PRJ/firstspirit_2021-05-07/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 alias dcrgkv='OLDDIR=$(pwd); cd ~/PRJ/gkv/gkv-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d fs5 mssql tomcat-sv-web; cd $OLDDIR'
 alias fsgkv='~/PRJ/gkv/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
-alias fsepp='~/PRJ/epp/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fsepp='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/epp/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 alias fsschu='~/PRJ/fs-schulung/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias backupkube='kubectl exec -it firstspirit-statefulset-0  -- bash -c "cp -af /opt/firstspirit5/. /opt/backup-full/firstspirit5"'
+
+alias dcrdc='OLDDIR=$(pwd); cd ~/PRJ/fs-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
+alias fsdc='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/fs-docker/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 #TODO put in functions file
 function jsonValue() {
@@ -143,4 +147,7 @@ function jsonValue() {
     awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
 }
 
+function LT() {
+  echo $(date +"%Y-%m-%dT%H:%M") "$@" >> ARBEIT.log
+}
 
