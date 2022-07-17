@@ -31,7 +31,7 @@
 function update_holder() {
 
   local instance="$1"
-  local replacement="$2"
+  local replacement="${@:2}"
   echo "$json_array" | jq --argjson arg_j "$replacement" "(.[] | (select(.instance==\"$instance\"))) |= \$arg_j"
 }
 
@@ -91,10 +91,19 @@ function cdf() {
     else
       countdown_formatted=" ""$countdown_sign""$days""d:""$display_hours"":""$display_minutes"" "
     fi
+    countdown_color2='#fff000'
     json_append='{ "full_text":"'"$countdown_formatted"'", "color": "'"$countdown_color"'" }'
   fi
   #color": "'"$countdown_color"' }'
-  json_array=$(update_holder holder__countdown "$json_append")
+  json_array=$(update_holder "holder__countdown" "$json_append")
+}
+
+function setWeather() {
+  weatherfile=~/.shellscripts/i3wm/bg/assets/weather
+  weather_color="$(cat ~/.shellscripts/i3wm/bg/assets/weathercolor)"
+  json_append='{ "full_text":"'"$(cat $weatherfile)"'", "color": "'"$weather_color"'" }'
+
+  json_array=$(update_holder "holder__weather" "$json_append")
 }
 
 #!/usr/bin/env bash
@@ -140,6 +149,7 @@ i3status -c ~/.config/i3/i3status.conf | (
     read line
     json_array="$(echo $line | sed -e 's/^,//')"
     cdf ~/.shellscripts/countdown/file
+    setWeather
     echo ",$json_array"
   done
 )
