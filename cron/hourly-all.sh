@@ -1,0 +1,1 @@
+sh ~/.shellscripts/i3wm/get-weather.a.sh
