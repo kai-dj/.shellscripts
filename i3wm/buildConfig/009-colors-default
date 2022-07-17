@@ -1,0 +1,8 @@
+##### default i3 config COLORS #####
+####################################
+# class                 border  backgr. text    indicator child_border
+client.focused          #ffffff #000000 #ff6600 #ff6600   #111111
+client.focused_inactive #000000 #222222 #888888 #292d2e
+client.unfocused        #000000 #222222 #888888 #292d2e
+client.urgent           #000000 #222222 #888888 #292d2e
+client.placeholder      #000000 #222222 #888888 #292d2e

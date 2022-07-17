@@ -1,0 +1,74 @@
+##### default i3 config BINDSYM #####
+#####################################
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exit
+#exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+w exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'New name: '
+# kill focused window
+bindsym $mod+q kill
+bindsym $sub+F4 kill
+# start dmenu (a program launcher)
+bindsym Menu exec --no-startup-id /home/kai/bin/dmenu_run_history
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $hyper+h exec --no-startup-id 'sh ~/.shellscripts/i3wm/set-keyboard.sh'
+bindsym $sub+F5 exec --no-startup-id bebebe
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+End layout stacking
+bindsym $mod+Home layout tabbed
+bindsym $mod+Next layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+##SCRATCHPAD
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+less move scratchpad
+# Show the first scratchpad window
+bindsym $mod+less scratchpad show
+##programme
+bindsym $mod+v exec --no-startup-id vlc
+bindsym Shift+$mod+v exec --no-startup-id killall -s 9 vlc
+bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+i exec --no-startup-id intellij-idea-ultimate-edition
+bindsym $mod+s exec --no-startup-id signal-desktop
+bindsym $mod+j exec --no-startup-id java -jar ~/.jd/JDownloader.jar
+bindsym $mod+f exec --no-startup-id firefox
+bindsym $mod+c exec --no-startup-id google-chrome-stable
+bindsym Shift+$mod+f exec --no-startup-id killall chromium
+bindsym XF86Launch1 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw.py
+bindsym XF86Launch2 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw2.py
+bindsym XF86Launch4 exec --no-startup-id python3 /home/kai/.shellscripts/pw/enter.py
+bindsym XF86LaunchA exec --no-startup-id python3 /home/kai/.shellscripts/pw/togglemuteteams.py
+bindsym $sub+space exec --no-startup-id xterm
+bindsym $mod+space exec --no-startup-id bashrun
+for_window [instance="bashrun"] floating enable
+bindsym $mod+m exec --no-startup-id pavucontrol
+bindsym XF86HomePage exec --no-startup-id pcmanfm
+###autonation
+bindsym --release $hyper+d exec --no-startup-id sh /home/aik/.shellscripts/tools/type_date.a.sh
+bindsym --release XF86Calculator exec --no-startup-id sh /home/kai/.shellscripts/tools/paste_date.a.sh
+bindsym --release XF86Mail exec --no-startup-id sh /home/kai/.shellscripts/tools/type-mail.a.sh
+bindsym --release $hyper+Shift+m exec --no-startup-id sh /home/aik/.shellscripts/tools/type_date.a.sh
+bindsym --release $mod+F9 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_forceRefresh.a.sh
+bindsym --release $mod+F10 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_fsComment.a.sh
+bindsym --release $mod+Shift+F10 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_fsCommentInline.a.sh
+bindsym $mod+a exec --no-startup-id scrcpy
+for_window [class="sfml-app"] floating enable
+for_window [class="SFML"] floating enable
+for_window [instance="SFML"] floating enable

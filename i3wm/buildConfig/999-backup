@@ -1,0 +1,63 @@
+#in bar
+  #status_command sh /home/kai/.shellscripts/i3wm/bg/status.sh
+  #status_command exec i3status -c ~/.config/i3/i3status.conf
+  # status_command exec /home/kai/bin/i3statusExpand.sh
+
+
+
+
+
+
+#BAK
+# split in vertical orientation
+#bindsym $mod+v split v
+# enter fullscreen mode for the focused container
+#bindsym $mod+f fullscreen toggle
+# focus the parent container
+#bindsym $mod+a focus parent
+# change focus between tiling / floating windows
+#bindsym $mod+space focus mode_toggle
+#bindsym $mod+$sub+w exec --no-startup-id sh /home/aik/.config/aik/worms/worms2.sh
+# start a terminal
+#bindsym $mod+Return exec i3-sensible-terminal
+# change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym Shift+$mod+e exec --no-startup-id killall -s 9 emacs
+#bindsym $mod+p exec --no-startup-id pcmanfm
+#bindsym $mod+mod2+KP_1 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw.py
+#for_window [class="XTerm" instance="floating"] floating enable
+#for_window [instance="scrcpy"] floating enable
+#bindsym XF86Mail exec --no-startup-id thunderbird; exec --no-startup-id pidgin
+#bindsym $sub+Greek_ALPHA exec --no-startup-id xterm -bg black -fg white
+#bindsym $mod+i exec --no-startup-id inkscape
+#bindsym $sub+F12 exec --no-startup-id sudo killall -s 9 inkscape
+#bindsym $mod+w exec --no-startup-id sh /home/aik/.config/aik/worms/worms.sh
+#bindsym $mod+$sub+w exec --no-startup-id sh /home/aik/.config/aik/worms/worms2.sh
+#bindsym XF86AudioMute exec --no-startup-id sh /home/aik/.config/aik/linux/alsa_mute.sh
+#bindsym XF86AudioRaiseVolume exec --no-startup-id sh /home/aik/.config/aik/linux/alsa_raise.sh
+#bindsym XF86AudioLowerVolume exec --no-startup-id sh /home/aik/.config/aik/linux/alsa_lower.sh
+#bindsym XF86Tools exec --no-startup-id vlc
+#bindsym Shift+XF86Tools exec --no-startup-id killall -s 9 vlc
+#bindsym XF86Sleep exec --no-startup-id sh /home/aik/.config/aik/linux/sync_beep.sh
+#bindsym Shift+XF86Sleep exec --no-startup-id sh /home/aik/.config/aik/linux/monitor_off.sh
+#bindsym $mod+XF86Sleep exec --no-startup-id sh /home/aik/shr/db/prj/kai.dj/mix/update.sh
+#bindsym $mod+b bar mode toggle
+# focus the child container
+#bindsym $mod+d focus child
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+#set $workspace5 number "5"
+#bindsym $mod+5 workspace $workspace5
+#bindsym $mod+Shift+5 move container to workspace $workspace5
+#remove wine kontextmenu
+#exec --no-startup-id rm -f ~/.local/share/mime/packages/x-wine*
+#exec --no-startup-id rm -f ~/.local/share/applications/wine-extension*
+#exec --no-startup-id rm -f ~/.local/share/icons/hicolor/*/*/application-x-wine-extension*
+#exec --no-startup-id rm -f ~/.local/share/mime/application/x-wine-extension*

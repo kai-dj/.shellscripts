@@ -1,0 +1,7 @@
+##### default i3 config KEYBOARD #####
+######################################
+set $mod Mod4
+set $sub Mod1
+set $hyper Mod3
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
