@@ -1,0 +1,1 @@
+sshfs 192.168.178.151:storage /mnt/PIXEL/ -o follow_symlinks -p 8022

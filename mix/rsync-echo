@@ -1,0 +1,1 @@
+rsync -avxHAX --info=progress2 /usr /run/media/aik/STK-LINUX/ 2>> /home/rsync.err
