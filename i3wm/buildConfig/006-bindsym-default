@@ -11,7 +11,7 @@ bindsym $mod+w exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'N
 bindsym $mod+q kill
 # kill focused window
 bindsym $sub+F4 kill
-bindsym Menu exec --no-startup-id /home/kai/bin/dmenu_run_history
+bindsym Menu exec --no-startup-id ~/.shellscripts/bin/dmenu_run_history
 # start dmenu (a program launcher)
 # change focus
 bindsym $mod+Left focus left
