@@ -15,7 +15,8 @@ function freemem_in_gb() {
   bc <<<"scale=${prec:-1};${weather_full_text_file}/1024/1024"
 }
 function buildBattery() {
-  battery_full_text=$(acpi | cut -d "," -f 2 | xargs)
+  battery_full_text=$(acpi 2>/dev/null | cut -d "," -f 2 | xargs)
+  [[ -z $battery_full_text ]] && return
   battery_color="#ffffff"
   BATTERYTRESHOLD=15
   disk_color="#ffffff"
@@ -28,7 +29,7 @@ function buildBattery() {
 }
 
 function buildDisk() {
-  disk_full_text=$(df -h / | cut -d " " -f 4 | xargs)
+  disk_full_text=$(df -h / | grep "/dev/"|tr -s ' '|cut -d " " -f 4|xargs)
   DISKTRESHOLD=10
   disk_color="#ffffff"
   if (($(echo "${disk_full_text::-1} < $DISKTRESHOLD" | bc -l))); then
@@ -74,6 +75,7 @@ function buildTime() {
 
 function outputElement() {
   ARRAY="$1""$K3S_SEPARATOR""["
+
   ARRAY="$ARRAY"$(buildBattery)
   ARRAY="$ARRAY"$(buildDisk)
   ARRAY="$ARRAY"$(buildRam)
