@@ -1,18 +1,18 @@
 ##### default i3 config BINDSYM #####
 #####################################
-# reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# reload the configuration file
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+e exit
-#exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# exit i3 (logs you out of your X session)
+# exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+w exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'New name: '
-# kill focused window
 bindsym $mod+q kill
+# kill focused window
 bindsym $sub+F4 kill
-# start dmenu (a program launcher)
 bindsym Menu exec --no-startup-id /home/kai/bin/dmenu_run_history
+# start dmenu (a program launcher)
 # change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -51,6 +51,8 @@ bindsym $mod+j exec --no-startup-id java -jar ~/.jd/JDownloader.jar
 bindsym $mod+f exec --no-startup-id firefox
 bindsym $mod+c exec --no-startup-id google-chrome-stable
 bindsym Shift+$mod+f exec --no-startup-id killall chromium
+bindsym $mod+o exec --no-startup-id sudo obs --startvirtualcam
+bindsym Shift+$mod+o exec --no-startup-id sudo killall obs
 bindsym XF86Launch1 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw.py
 bindsym XF86Launch2 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw2.py
 bindsym XF86Launch4 exec --no-startup-id python3 /home/kai/.shellscripts/pw/enter.py

@@ -289,7 +289,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
  
 def test(HandlerClass = SimpleHTTPRequestHandler,
          ServerClass = http.server.HTTPServer):
-    # http.server.test(HandlerClass, ServerClass)
+    # http.server.M(HandlerClass, ServerClass)
     http.server.test(HandlerClass, ServerClass, port=9090)
 
 if __name__ == '__main__':

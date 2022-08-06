@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 HOSTNAME=$(cat /etc/hostname)
 PARTSDIR=~/.shellscripts/i3wm/buildConfig
+TARGETCONFIG=~/.config/i3/config
+
 function findConfPartForHost() {
   F_PREFIX=$1
   CONFPARTFILE=$(find $PARTSDIR -iname "$F_PREFIX""-""$HOSTNAME")
@@ -20,10 +22,10 @@ PREFIXLIST=(
   "008-bar"
   "009-colors"
 )
-
+echo > $TARGETCONFIG
 for PREFIX in "${PREFIXLIST[@]}"; do
   echo $PREFIX
-  cat $(findConfPartForHost $PREFIX) >> ~/.shellscripts/confTEST;
-  echo >>~/.shellscripts/confTEST
-  echo >>~/.shellscripts/confTEST
+  cat $(findConfPartForHost $PREFIX) >> $TARGETCONFIG;
+  echo >>$TARGETCONFIG
+  echo >>$TARGETCONFIG
 done

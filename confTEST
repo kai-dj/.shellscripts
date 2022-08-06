@@ -1,0 +1,201 @@
+##### default i3 config HEADER #####
+####################################
+# https://i3wm.org/docs/userguide.html
+
+
+##### default i3 config AUTOSTART #####
+#######################################
+exec --no-startup-id nm-applet
+exec --no-startup-id numlockx on
+exec --no-startup-id sh ~/.shellscripts/i3wm/set-keyboard.sh
+exec --no-startup-id xset b 100
+exec --no-startup-id sleep 20 && systemctl --user start hourly-all.service
+
+
+##### default i3 config KEYBOARD #####
+######################################
+set $mod Mod4
+set $sub Mod1
+set $hyper Mod3
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+
+##### default i3 config FONT #####
+##################################
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+#font pango:monospace 8
+font pango:ubuntu bold 11
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+#font pango:DejaVu Sans Mono 8
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+
+##### default i3 config WORKSPACE #####
+#######################################
+workspace_layout tabbed
+#workspace 01 output eDP1
+#workspace 02 output DP3
+#workspace 03 output DP2
+set $ws1 number "1"
+set $ws2 number "2"
+set $ws3 number "3"
+set $ws4 number "4"
+set $ws5 number "5"
+set $ws6 number "6"
+set $ws7 number "7"
+set $ws8 number "8"
+set $ws9 number "9"
+set $ws0 number "0"
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws0
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws1
+
+
+##### default i3 config BINDSYM #####
+#####################################
+bindsym $mod+Shift+c reload
+# reload the configuration file
+bindsym $mod+Shift+r restart
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+e exit
+# exit i3 (logs you out of your X session)
+# exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+w exec --no-startup-id i3-input -F 'rename workspace to "%s"' -P 'New name: '
+bindsym $mod+q kill
+# kill focused window
+bindsym $sub+F4 kill
+bindsym Menu exec --no-startup-id /home/kai/bin/dmenu_run_history
+# start dmenu (a program launcher)
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+bindsym $hyper+h exec --no-startup-id 'sh ~/.shellscripts/i3wm/set-keyboard.sh'
+bindsym $sub+F5 exec --no-startup-id bebebe
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+End layout stacking
+bindsym $mod+Home layout tabbed
+bindsym $mod+Next layout toggle split
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+##SCRATCHPAD
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+less move scratchpad
+# Show the first scratchpad window
+bindsym $mod+less scratchpad show
+##programme
+bindsym $mod+v exec --no-startup-id vlc
+bindsym Shift+$mod+v exec --no-startup-id killall -s 9 vlc
+bindsym $mod+e exec --no-startup-id emacs
+bindsym $mod+i exec --no-startup-id intellij-idea-ultimate-edition
+bindsym $mod+s exec --no-startup-id signal-desktop
+bindsym $mod+j exec --no-startup-id java -jar ~/.jd/JDownloader.jar
+bindsym $mod+f exec --no-startup-id firefox
+bindsym $mod+c exec --no-startup-id google-chrome-stable
+bindsym Shift+$mod+f exec --no-startup-id killall chromium
+bindsym XF86Launch1 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw.py
+bindsym XF86Launch2 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw2.py
+bindsym XF86Launch4 exec --no-startup-id python3 /home/kai/.shellscripts/pw/enter.py
+bindsym XF86LaunchA exec --no-startup-id python3 /home/kai/.shellscripts/pw/togglemuteteams.py
+bindsym $sub+space exec --no-startup-id xterm
+bindsym $mod+space exec --no-startup-id bashrun
+for_window [instance="bashrun"] floating enable
+bindsym $mod+m exec --no-startup-id pavucontrol
+bindsym XF86HomePage exec --no-startup-id pcmanfm
+###autonation
+bindsym --release $hyper+d exec --no-startup-id sh /home/aik/.shellscripts/tools/type_date.a.sh
+bindsym --release XF86Calculator exec --no-startup-id sh /home/kai/.shellscripts/tools/paste_date.a.sh
+bindsym --release XF86Mail exec --no-startup-id sh /home/kai/.shellscripts/tools/type-mail.a.sh
+bindsym --release $hyper+Shift+m exec --no-startup-id sh /home/aik/.shellscripts/tools/type_date.a.sh
+bindsym --release $mod+F9 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_forceRefresh.a.sh
+bindsym --release $mod+F10 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_fsComment.a.sh
+bindsym --release $mod+Shift+F10 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_fsCommentInline.a.sh
+bindsym $mod+a exec --no-startup-id scrcpy
+for_window [class="sfml-app"] floating enable
+for_window [class="SFML"] floating enable
+for_window [instance="SFML"] floating enable
+
+
+##### default i3 config MODES #####
+###################################
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+##### default i3 config BAR #####
+#################################
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  status_command exec ~/.shellscripts/i3wm/i3statusExpand.sh
+}
+
+
+##### default i3 config COLORS #####
+####################################
+# class                 border  backgr. text    indicator child_border
+client.focused          #ffffff #000000 #ff6600 #ff6600   #111111
+client.focused_inactive #000000 #222222 #888888 #292d2e
+client.unfocused        #000000 #222222 #888888 #292d2e
+client.urgent           #000000 #222222 #888888 #292d2e
+client.placeholder      #000000 #222222 #888888 #292d2e
+
+

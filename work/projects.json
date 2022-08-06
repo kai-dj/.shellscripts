@@ -1,0 +1,39 @@
+{
+  "projects": [
+    {
+      "project": "GKV-ES",
+      "tickets": [
+        {
+          "ticket": "JSON-HIS"
+        },
+        {
+          "ticket": "JSON-DVKA"
+        }
+      ],
+      "active": true
+    },
+    {
+      "project": "MBTM",
+      "tickets": [
+        {
+          "ticket": "std-P"
+        },        {
+          "ticket": "home-P"
+        }
+      ],
+      "active": true
+    },
+    {
+      "project": "COYO",
+      "tickets": [
+        {
+          "ticket": "DEMO"
+        },
+        {
+          "ticket": "STYLE"
+        }
+      ],
+      "active": false
+    }
+  ]
+}

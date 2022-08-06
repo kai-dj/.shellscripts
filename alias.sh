@@ -15,7 +15,7 @@ alias falias='declare -F'
 #alias each shell_script in ~/.shellscripts/* having .a.sh prefix
 for shell_script in ~/.shellscripts/*/*.a.sh; do
   #desiredalias=$(basename -s ".sh" "$shell_script")
-  ##test if command already set
+  ##M if command already set
   #~ if ! type "$desiredalias" > /dev/null; then
     #~ #set name of script for alias
     #~ alias $(basename -s ".sh" "$shell_script")="sh $shell_script"
@@ -122,7 +122,7 @@ alias Y='yaourt'
 alias vpn='cat ~/.pw/uni_vpn  | cut -d ':' -f2 | sudo openconnect -u $(cat ~/.pw/uni_vpn  | cut -d ':' -f1) --passwd-on-stdin vpn-gate-1.uni-bielefeld.de & disown'
 
 ### ARBEIT
-##alias arbeit='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
+##alias A='date --iso-8601=seconds  -d "+8 hours +30 minutes" > .feierabend'
 
 alias dcrmwf='OLDDIR=$(pwd); cd ~/PRJ/mwf/firstspirit-mwf-docker-environment/ && docker-compose stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
 alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/mwf/firstspirit-mwf-docker-environment/ && docker-compose stop'
@@ -138,16 +138,12 @@ alias fsschu='~/PRJ/fs-schulung/FSLauncher/FSLauncher ~/Downloads/config.fslnch 
 alias backupkube='kubectl exec -it firstspirit-statefulset-0  -- bash -c "cp -af /opt/firstspirit5/. /opt/backup-full/firstspirit5"'
 
 alias dcrdc='OLDDIR=$(pwd); cd ~/PRJ/fs-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
-alias fsdc='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/fs-docker/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
-
+alias fsdc='~/PRJ/fs-docker/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fsJOptions='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; '
 #TODO put in functions file
 function jsonValue() {
     KEY=$1
     num=$2
     awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
-}
-
-function LT() {
-  echo $(date +"%Y-%m-%dT%H:%M") "$@" >> ARBEIT.log
 }
 
