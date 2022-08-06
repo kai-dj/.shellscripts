@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+beep
 DESCRIPTION="Script using xdotool to type ISO 8601 fornmatted current date."
 
 if [ "$1" = "-h" ] || [ "$1" = "--help" ]
