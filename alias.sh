@@ -147,3 +147,4 @@ function jsonValue() {
     awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
 }
 
+alias pullPXL='for loc in DCIM Movies Music Pictures tra "Android/data/net.osmand/files/tracks"; do adb pull /storage/emulated/0/"$loc"; done'

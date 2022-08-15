@@ -48,9 +48,9 @@ bindsym $mod+e exec --no-startup-id emacs
 bindsym $mod+i exec --no-startup-id intellij-idea-ultimate-edition
 bindsym $mod+s exec --no-startup-id signal-desktop
 bindsym $mod+j exec --no-startup-id java -jar ~/.jd/JDownloader.jar
-bindsym $mod+f exec --no-startup-id firefox
-bindsym $mod+c exec --no-startup-id google-chrome-stable
-bindsym Shift+$mod+f exec --no-startup-id killall chromium
+bindsym $mod+f exec --no-startup-id google-chrome --profile-directory="aik"
+bindsym $mod+c exec --no-startup-id google-chrome --profile-directory="wrk"
+bindsym Shift+$mod+f exec --no-startup-id killall chrome
 bindsym $mod+o exec --no-startup-id sudo obs --startvirtualcam
 bindsym Shift+$mod+o exec --no-startup-id sudo killall obs
 bindsym XF86Launch1 exec --no-startup-id python3 /home/kai/.shellscripts/pw/pw.py
