@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2154
-export ALTERNATE_EDITOR="emacs"
-export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
-export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
+#export ALTERNATE_EDITOR="emacs"
+#export EDITOR="emacsclient -t"                  # $EDITOR opens in terminal
+#export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI mode
+export ALTERNATE_EDITOR="nano"
+export EDITOR="geany"                  # $EDITOR opens in terminal
+export VISUAL="geany"         # $VISUAL opens in GUI mode
 export ANDROID_HOME=/opt/android-sdk
 export PATH=$PATH:"$HOME"/
 export PATH=$PATH:"$HOME"/bin

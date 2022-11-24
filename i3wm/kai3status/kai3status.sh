@@ -14,6 +14,14 @@ function freemem_in_gb() {
   read -r _ weather_full_text_file _ <<<"$(grep --fixed-strings 'MemAvailable' /proc/meminfo)"
   bc <<<"scale=${prec:-1};${weather_full_text_file}/1024/1024"
 }
+
+function buildKeyboard() {
+  LAYOUT=$(setxkbmap -query | grep layout | cut -d':' -f 2|xargs)
+  [[ $LAYOUT == "de" ]] && return
+  setxkbmap -layout de -option ctrl:nocaps
+  echo '{ "full_text":"'"""$LAYOUT "'", "color": "'"#ff000"'", "name": "'"keyboard"'" }'","
+}
+
 function buildBattery() {
   battery_full_text=$(acpi 2>/dev/null | cut -d "," -f 2 | xargs)
   [[ -z $battery_full_text ]] && return
@@ -49,7 +57,16 @@ function buildRam() {
   export K3S_SEPARATOR_TWO=","
   echo '{ "full_text":"'" R ""$freemem_full_text "'", "color": "'"$freemem_color"'", "name": "'"ram"'" }'","
 }
-
+function buildCpu() {
+  TEMP_CPU=$(( $(cat /sys/class/thermal/thermal_zone12/temp) / 1000 ))
+  TEMP_TRESHOLD=70
+  freemem_color="#ffffff"
+  if (($(echo "$TEMP_CPU > $TEMP_TRESHOLD" | bc -l))); then
+    freemem_color="#ff0000"
+  fi
+  export K3S_SEPARATOR_TWO=","
+  echo '{ "full_text":"'" C ""$TEMP_CPU""°C "'", "color": "'"$freemem_color"'", "name": "'"cpu"'" }'","
+}
 function buildWeather() {
   weather_full_text_file=~/.shellscripts/i3wm/bg/assets/weather
   weather_color="$(cat ~/.shellscripts/i3wm/bg/assets/weathercolor)"
@@ -76,9 +93,11 @@ function buildTime() {
 function outputElement() {
   ARRAY="$1""$K3S_SEPARATOR""["
 
+  ARRAY="$ARRAY"$(buildKeyboard)
   ARRAY="$ARRAY"$(buildBattery)
   ARRAY="$ARRAY"$(buildDisk)
   ARRAY="$ARRAY"$(buildRam)
+  ARRAY="$ARRAY"$(buildCpu)
   ARRAY="$ARRAY"$(buildWeather)
   #ARRAY="$ARRAY"$(buildWorkLog)
   ARRAY="$ARRAY"$(buildCountDownsFromFiles)

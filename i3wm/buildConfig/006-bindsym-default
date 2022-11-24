@@ -12,6 +12,7 @@ bindsym $mod+q kill
 # kill focused window
 bindsym $sub+F4 kill
 bindsym Menu exec --no-startup-id ~/.shellscripts/bin/dmenu_run_history
+bindsym $mod+d exec --no-startup-id ~/.shellscripts/bin/dmenu_run_history
 # start dmenu (a program launcher)
 # change focus
 bindsym $mod+Left focus left
@@ -70,7 +71,11 @@ bindsym --release $hyper+Shift+m exec --no-startup-id sh /home/aik/.shellscripts
 bindsym --release $mod+F9 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_forceRefresh.a.sh
 bindsym --release $mod+F10 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_fsComment.a.sh
 bindsym --release $mod+Shift+F10 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_fsCommentInline.a.sh
+bindsym --release $mod+F11 exec --no-startup-id sh /home/kai/.shellscripts/tools/type_entwicklung.a.sh
 bindsym $mod+a exec --no-startup-id scrcpy
 for_window [class="sfml-app"] floating enable
 for_window [class="SFML"] floating enable
 for_window [instance="SFML"] floating enable
+#bindsym --release KP_Insert exec --no-startup-id xdotool key --clearmodifiers ctrl+c
+#bindsym --release KP_Delete exec --no-startup-id xdotool key --clearmodifiers ctrl+v
+#bindsym --release KP_Enter exec --no-startup-id xdotool key --clearmodifiers ctrl+e

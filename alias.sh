@@ -140,6 +140,8 @@ alias backupkube='kubectl exec -it firstspirit-statefulset-0  -- bash -c "cp -af
 alias dcrdc='OLDDIR=$(pwd); cd ~/PRJ/fs-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
 alias fsdc='~/PRJ/fs-docker/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 alias fsJOptions='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; '
+alias fsdkvm='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/gkv/dkvm/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fsRM='rm ~/Downloads/config*'
 #TODO put in functions file
 function jsonValue() {
     KEY=$1
@@ -147,4 +149,6 @@ function jsonValue() {
     awk -F"[,:}]" '{for(i=1;i<=NF;i++){if($i~/'$KEY'\042/){print $(i+1)}}}' | tr -d '"' | sed -n ${num}p
 }
 
-alias pullPXL='for loc in DCIM Movies Music Pictures tra "Android/data/net.osmand/files/tracks"; do adb pull /storage/emulated/0/"$loc"; done'
+alias fsdefcon='~/defcon/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fswebforms='~/Webforms_Schulung/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias pullS21='for loc in DCIM Movies Music Pictures tra "Android/data/net.osmand/files/tracks"; do adb pull /storage/emulated/0/"$loc"; done'

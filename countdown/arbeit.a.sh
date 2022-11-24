@@ -5,3 +5,4 @@ case $TIMESTAMP in
     *[6789]) TIMESTAMP=${TIMESTAMP%?}5;;
 esac
 echo $(date --iso-8601=seconds -d "$TIMESTAMP")';0:#ffff00,7200:#ff6600,14400:#ff0000;#00ff00:#00ff00' > ~/.shellscripts/countdown/files/A
+sync
