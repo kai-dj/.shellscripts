@@ -130,7 +130,7 @@ alias dsmwf='OLDDIR=$(pwd); cd ~/PRJ/mwf/firstspirit-mwf-docker-environment/ && 
 alias fsmwf='~/PRJ/firstspirit_2021-05-07/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 alias dcrgkv='OLDDIR=$(pwd); cd ~/PRJ/gkv/gkv-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d fs5 mssql tomcat-sv-web; cd $OLDDIR'
-alias fsgkv='~/PRJ/gkv/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fsgkv='~/PRJ/gkv/GKV/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
 alias fsepp='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/epp/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 
@@ -140,7 +140,7 @@ alias backupkube='kubectl exec -it firstspirit-statefulset-0  -- bash -c "cp -af
 alias dcrdc='OLDDIR=$(pwd); cd ~/PRJ/fs-docker/ && docker-compose -f docker-compose.yml -f docker-compose.local.yml stop && sleep 1 && docker-compose -f docker-compose.yml -f docker-compose.local.yml up -d; cd $OLDDIR'
 alias fsdc='~/PRJ/fs-docker/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 alias fsJOptions='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; '
-alias fsdkvm='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/gkv/dkvm/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fsdkvm='export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" ; ~/PRJ/dkvm/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 alias fsRM='rm ~/Downloads/config*'
 #TODO put in functions file
 function jsonValue() {
@@ -152,3 +152,15 @@ function jsonValue() {
 alias fsdefcon='~/defcon/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 alias fswebforms='~/Webforms_Schulung/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
 alias pullS21='for loc in DCIM Movies Music Pictures tra "Android/data/net.osmand/files/tracks"; do adb pull /storage/emulated/0/"$loc"; done'
+
+alias xlock='LANG=C LC_ALL=C xlock'
+
+#alias fsmbtm='~/PRJ/mbtm/fslauncher-web/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+alias fsmbtm='~/PRJ/MB_Tech_Motion/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+
+alias fsnergie='/home/kai/PRJ/nergie/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+
+
+alias fsswp='/home/kai/PRJ/swp/FSLauncher/FSLauncher ~/Downloads/config.fslnch & disown'
+
+

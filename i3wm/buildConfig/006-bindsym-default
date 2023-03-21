@@ -79,3 +79,4 @@ for_window [instance="SFML"] floating enable
 #bindsym --release KP_Insert exec --no-startup-id xdotool key --clearmodifiers ctrl+c
 #bindsym --release KP_Delete exec --no-startup-id xdotool key --clearmodifiers ctrl+v
 #bindsym --release KP_Enter exec --no-startup-id xdotool key --clearmodifiers ctrl+e
+bindsym --release $mod+l exec --no-startup-id LANG=C LC_ALL=C xlock #xlock

@@ -7,4 +7,4 @@ if [ "$1" = "-h" ] || [ "$1" = "--help" ]
   exit 0
 fi
 sleep 1
-xdotool key minus minus dollar dollar minus minus
+xdotool key dollar minus minus

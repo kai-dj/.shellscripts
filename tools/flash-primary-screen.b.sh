@@ -122,7 +122,8 @@ Main () {
     trap CleanUp INT TERM
 
     # Get primary monitor current settings # | grep primary)
-    XrandrName=$(xrandr --current | grep DVI-D-0)
+    XrandrName=$(xrandr --current | grep eDP1)
+    #DVI-D-0)
     MonXrandrName="${XrandrName%% *}"
     InitXrandrArray
     SearchXrandrArray

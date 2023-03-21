@@ -5,5 +5,5 @@ exec --no-startup-id numlockx on
 exec --no-startup-id sh ~/.shellscripts/i3wm/set-keyboard.sh
 exec --no-startup-id xset b 100
 exec --no-startup-id sleep 20 && systemctl --user start hourly-all.service
-exec --no-startup-id xautolock -time 10 -locker "xlock" -detectsleep
+# exec --no-startup-id xautolock -time 10 -locker "xlock" -detectsleep
 exec --no-startup-id sh ~/.shellscripts/i3wm/autostart.sh

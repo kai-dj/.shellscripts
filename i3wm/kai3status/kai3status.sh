@@ -24,6 +24,7 @@ function buildKeyboard() {
 
 function buildBattery() {
   battery_full_text=$(acpi 2>/dev/null | cut -d "," -f 2 | xargs)
+  #battery_full_text=$(acpi 2>/dev/null | sed -n '2 p'| cut -d "," -f 2 | xargs)
   [[ -z $battery_full_text ]] && return
   battery_color="#ffffff"
   BATTERYTRESHOLD=15
